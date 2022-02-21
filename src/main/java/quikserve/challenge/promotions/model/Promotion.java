@@ -4,8 +4,6 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.math.BigDecimal;
-
 @Data
 @Document(collection = "promotion")
 public class Promotion {
@@ -19,5 +17,5 @@ public class Promotion {
 
     private DiscountType discountType;
 
-    private BigDecimal discount;
+    private Integer discount;
 }
