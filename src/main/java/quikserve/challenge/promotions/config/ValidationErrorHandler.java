@@ -10,16 +10,14 @@ import org.springframework.web.bind.support.WebExchangeBindException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @ControllerAdvice
-public class ValidationErrorConfig {
+public class ValidationErrorHandler {
 
     @ExceptionHandler(WebExchangeBindException.class)
     public ResponseEntity<List<String>> handleException(WebExchangeBindException e) {
         var errors = e.getBindingResult()
                 .getAllErrors()
                 .stream()
-                .peek(err -> log.error("error={}", err))
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toList());
         return ResponseEntity.badRequest().body(errors);

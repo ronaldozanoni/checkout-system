@@ -10,4 +10,6 @@ public class PromotionsApiApplication {
 		SpringApplication.run(PromotionsApiApplication.class, args);
 	}
 
+
+
 }

@@ -9,3 +9,12 @@ spring:
       host: localhost
       port: 27017
       database: promotions
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              ReactiveMongoTemplate: DEBUG

@@ -26,6 +26,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.3.1'
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
 	testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'

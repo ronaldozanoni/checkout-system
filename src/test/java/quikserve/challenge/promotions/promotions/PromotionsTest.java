@@ -3,31 +3,65 @@ package quikserve.challenge.promotions.promotions;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import quikserve.challenge.promotions.BaseTest;
+import quikserve.challenge.promotions.model.Promotion;
+
+import java.io.File;
 
 import static org.hamcrest.Matchers.*;
+import static quikserve.challenge.promotions.mocks.PromotionStubs.*;
 
 @RunWith(SpringRunner.class)
-@DataMongoTest
 public class PromotionsTest extends BaseTest {
+
+
+    private File validInputJson;
+    private File invalidInputJson;
+
+    @Autowired
+    private ReactiveMongoTemplate mongoTemplate;
+
+
+    @BeforeAll
+    public void setup() {
+        validInputJson = new File(getClass().getClassLoader().getResource("mocks/valid_promotion_request.json").getFile());
+        invalidInputJson = new File(getClass().getClassLoader().getResource("mocks/invalid_promotion_request.json").getFile());
+    }
+
+    @BeforeEach
+    public void setupEach() {
+        Promotion promotion = validPromotionStub();
+        mongoTemplate.save(promotion).subscribe();
+    }
+
+    @AfterEach
+    public void cleanUp() {
+        mongoTemplate.dropCollection(Promotion.class).subscribe();
+    }
+
 
     @Test
     public void createValidPromotion() {
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
                 .basePath("/promotions")
-                .body("{}")
+                .body(validInputJson)
             .when()
                 .post()
             .then()
                 .log().all()
                 .statusCode(201)
-                .body("id", notNullValue());
+                .header("location", notNullValue());
     }
 
     @Test
@@ -36,13 +70,13 @@ public class PromotionsTest extends BaseTest {
             .given()
                 .contentType(ContentType.JSON)
                 .basePath("/promotions")
-                .body("{}")
+                .body(invalidInputJson)
             .when()
                 .post()
             .then()
                 .log().all()
                 .statusCode(400)
-                .body("errors", not(empty()));
+                .body("$", hasSize(greaterThan(0)));
     }
 
     @Test
@@ -57,7 +91,7 @@ public class PromotionsTest extends BaseTest {
                 .log().all()
                 .statusCode(200)
                 .body("$", not(empty()))
-                .body("$[1].id", notNullValue());
+                .body("$", hasSize(1));
     }
 
     @Test
@@ -65,11 +99,11 @@ public class PromotionsTest extends BaseTest {
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
-                .basePath("/promotions/1")
+                .basePath("/promotions/")
             .when()
-                .get()
+                .get(ID)
             .then()
-                .log().all()
+                .log().headers()
                 .statusCode(200)
                 .body("id", notNullValue());
     }
@@ -79,51 +113,89 @@ public class PromotionsTest extends BaseTest {
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
-                .basePath("/promotions/XYZ999")
+                .basePath("/promotions/")
             .when()
-                .get()
+                .get("XYZ789")
             .then()
-                .log().all()
+                .log().headers()
                 .statusCode(404);
     }
 
     @Test
-    public void updateValidPromotion() {
-        final String id = "1";
+    public void partialUpdateValidPromotion() {
+        Promotion promo = Promotion.builder().name("New name").build();
+
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
-                .basePath("/promotions/" + id)
-                .body("{}")
+                .basePath("/promotions/")
+                .body(promo)
             .when()
-                .patch()
+                .patch(ID)
             .then()
                 .log().all()
                 .statusCode(200)
-                .body("id", equalTo(id));
+                .body("id", equalTo(ID))
+                .body("name", equalTo(promo.getName()));
     }
 
     @Test
-    public void updateInvalidPromotion() {
+    public void partialUpdateInvalidPromotion() {
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
-                .basePath("/promotions/1")
-                .body("{}")
+                .basePath("/promotions/")
+                .body(invalidInputJson)
             .when()
-                .patch()
+                .patch(ID)
             .then()
                 .log().all()
                 .statusCode(400)
-                .body("errors", not(empty()));
+                .body("$", not(empty()));
+    }
+
+    @Test
+    public void fullUpdateValidPromotion() {
+        Promotion promo = validPromotionStub();
+        promo.setName("New name");
+
+        RestAssured
+            .given()
+                .contentType(ContentType.JSON)
+                .basePath("/promotions")
+                .body(promo)
+            .when()
+                .put()
+            .then()
+                .log().all()
+                .statusCode(200)
+                .body("id", equalTo(ID))
+                .body("name", equalTo(promo.getName()));
+    }
+
+    @Test
+    public void fullUpdateInvalidPromotion() {
+        RestAssured
+            .given()
+                .contentType(ContentType.JSON)
+                .basePath("/promotions/")
+                .body(invalidInputJson)
+            .when()
+                .put()
+            .then()
+                .log().all()
+                .statusCode(400);
     }
 
     @Test
     public void deleteExistingPromotion() {
+        Promotion promo = validPromotionStub();
+
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
-                .basePath("/promotions/1")
+                .basePath("/promotions")
+                .body(promo)
             .when()
                 .delete()
             .then()
@@ -131,17 +203,5 @@ public class PromotionsTest extends BaseTest {
                 .statusCode(204);
     }
 
-    @Test
-    public void deleteNonExistingPromotion() {
-        RestAssured
-            .given()
-                .contentType(ContentType.JSON)
-                .basePath("/promotions/1")
-            .when()
-                .delete()
-            .then()
-                .log().all()
-                .statusCode(404);
-    }
 }
 

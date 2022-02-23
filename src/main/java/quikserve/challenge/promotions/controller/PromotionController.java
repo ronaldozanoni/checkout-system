@@ -1,6 +1,8 @@
 package quikserve.challenge.promotions.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import quikserve.challenge.promotions.dto.PromotionRequest;
@@ -13,46 +15,58 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/promotions")
+@RequestMapping(value = "/promotions")
 public class PromotionController {
 
     @Autowired
     private PromotionService promotionService;
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<Void>> create(@RequestBody @Valid final PromotionRequest promotionRequest) {
         return promotionService.create(promotionRequest)
-                .map(promo -> ResponseEntity.created(URI.create("/promotions/" + promo.getId())).build());
+                .map(promo -> ResponseEntity
+                        .created(URI.create("/promotions/" + promo.getId()))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .build());
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<List<Promotion>>> getAll() {
         return promotionService.getAll()
-                .map(ResponseEntity::ok);
+                .map(promos -> ResponseEntity
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(promos));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<Promotion>> getById(@PathVariable final String id) {
         return promotionService.getById(id)
-                .map(ResponseEntity::ok);
+                .map(promo -> ResponseEntity
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(promo));
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<Promotion>> update(@PathVariable final String id,
                                                   @Valid @RequestBody final PromotionRequest promotionRequest) {
         return promotionService.update(id, promotionRequest)
-                .map(ResponseEntity::ok);
+                .map(body -> ResponseEntity.ok(body));
     }
 
-    @PutMapping
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<Promotion>> update(@Valid @RequestBody final PromotionRequest promotionRequest) {
         return promotionService.update(promotionRequest)
-                .map(ResponseEntity::ok);
+                .map(promo -> ResponseEntity
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(promo));
     }
 
-    @DeleteMapping
-    public Mono<ResponseEntity<Void>> delete(@RequestBody final PromotionRequest promotionRequest) {
-        return promotionService.delete(promotionRequest)
-                .map(ok -> ResponseEntity.status(204).build());
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void delete(@RequestBody final PromotionRequest promotionRequest) {
+        promotionService.delete(promotionRequest).subscribe();
     }
 }

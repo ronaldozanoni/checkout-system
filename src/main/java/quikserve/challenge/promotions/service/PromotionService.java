@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import quikserve.challenge.promotions.dto.PromotionRequest;
+import quikserve.challenge.promotions.exception.NotFoundException;
 import quikserve.challenge.promotions.mapper.PromotionMapper;
 import quikserve.challenge.promotions.model.Promotion;
 import quikserve.challenge.promotions.model.Rule;
@@ -44,6 +45,8 @@ public class PromotionService {
 
     public Mono<Promotion> getById(String id) {
         return promotionsDB.findById(id)
+                .filter(Objects::nonNull)
+                .switchIfEmpty(Mono.error(new NotFoundException("Promotion not found")))
                 .doOnSuccess(promo -> log.info("msg=Success fetching promo with ID={}", id))
                 .doOnError(err -> log.error("msg=Failed to fetch promotion with ID={}", id, err));
     }
@@ -69,7 +72,7 @@ public class PromotionService {
     }
 
     public Mono<Void> delete(PromotionRequest promotionRequest) {
-        return promotionsDB.delete(promotionMapper.toEntity(promotionRequest))
+        return promotionsDB.deleteById(promotionRequest.getId())
                 .doOnSuccess(ok -> log.info("msg=Success deleting promotion with ID={}", promotionRequest.getId()))
                 .doOnError(err -> log.error("msg=Failed to delete promotion with ID={}", promotionRequest.getId(), err));
     }

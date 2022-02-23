@@ -1,12 +1,18 @@
 package quikserve.challenge.promotions.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import quikserve.challenge.promotions.model.DiscountType;
 import quikserve.challenge.promotions.model.Rule;
 
 import javax.validation.constraints.PositiveOrZero;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PromotionRequest {
 
     private String id;

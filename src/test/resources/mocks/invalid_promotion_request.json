@@ -1,0 +1,8 @@
+{
+  "name": "Sad Sunday :(",
+  "rules": {
+    "minValue": 2000
+  },
+  "discountType": "FIXED_VALUE",
+  "discount": -400
+}
