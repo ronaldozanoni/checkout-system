@@ -1,4 +1,4 @@
-package quikserve.challenge.promotions.promotions;
+package quikserve.challenge.promotions.tests;
 
 
 import io.restassured.RestAssured;
