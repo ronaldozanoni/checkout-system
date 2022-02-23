@@ -19,7 +19,7 @@ public class ValidationErrorConfig {
         var errors = e.getBindingResult()
                 .getAllErrors()
                 .stream()
-                .peek(error -> log.info("\nFOUND AN ERROR -> {}", error))
+                .peek(err -> log.error("error={}", err))
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toList());
         return ResponseEntity.badRequest().body(errors);

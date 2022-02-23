@@ -11,7 +11,6 @@ import reactor.core.publisher.Mono;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/promotions")
@@ -29,7 +28,6 @@ public class PromotionController {
     @GetMapping
     public Mono<ResponseEntity<List<Promotion>>> getAll() {
         return promotionService.getAll()
-                .collect(Collectors.toList())
                 .map(ResponseEntity::ok);
     }
 
@@ -41,14 +39,20 @@ public class PromotionController {
 
     @PatchMapping("/{id}")
     public Mono<ResponseEntity<Promotion>> update(@PathVariable final String id,
-                                                  @RequestBody @Valid final PromotionRequest promotionRequest) {
+                                                  @Valid @RequestBody final PromotionRequest promotionRequest) {
         return promotionService.update(id, promotionRequest)
+                .map(ResponseEntity::ok);
+    }
+
+    @PutMapping
+    public Mono<ResponseEntity<Promotion>> update(@Valid @RequestBody final PromotionRequest promotionRequest) {
+        return promotionService.update(promotionRequest)
                 .map(ResponseEntity::ok);
     }
 
     @DeleteMapping
     public Mono<ResponseEntity<Void>> delete(@RequestBody final PromotionRequest promotionRequest) {
         return promotionService.delete(promotionRequest)
-                .map(ok -> ResponseEntity.noContent().build());
+                .map(ok -> ResponseEntity.status(204).build());
     }
 }

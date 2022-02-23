@@ -2,13 +2,11 @@ package quikserve.challenge.promotions.model;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Data
-@Document(collection = "promotion")
+@Document
 public class Promotion {
 
-    @MongoId
     private String id;
 
     private String name;
