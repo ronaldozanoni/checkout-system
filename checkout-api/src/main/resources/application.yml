@@ -16,3 +16,10 @@ feign:
         connectTimeout: 3000
         readTimeout: 3000
         loggerLevel: basic
+
+## Ribbon
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: false
