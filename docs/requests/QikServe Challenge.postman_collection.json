@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "57a65a4d-c42a-4e19-bba4-c2b479624cd6",
+		"name": "QikServe Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Promotions",
+			"item": [
+				{
+					"name": "Get all promotions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/promotions/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create promo",
+					"protocolProfileBehavior": {
+						"strictSSL": false,
+						"disableUrlEncoding": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sad Sunday!\",\n  \"rules\": {\n    \"minValue\": 0,\n    \"products\": [\"PWWe3w1SDU\"]\n  },\n  \"discountType\": \"FIXED_VALUE\",\n  \"discount\": 200\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/promotions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get promotion by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/promotions/6215ade1590a7706238d9ba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"promotions",
+								"6215ade1590a7706238d9ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update promotion",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New burguers!\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/promotions/6212e921c1116c31ebd38171",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"promotions",
+								"6212e921c1116c31ebd38171"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete promotion",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6217d6379abc9f179f37745b\",\n    \"name\": \"Sad Sunday!\",\n    \"rules\": {\n        \"products\": [\n            \"PWWe3w1SDU\"\n        ],\n        \"minValue\": 0\n    },\n    \"discountType\": \"FIXED_VALUE\",\n    \"discount\": 200\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/promotions/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update promotion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6212e921c1116c31ebd38171\",\n    \"name\": \"Good burguers!\",\n    \"rules\": {\n        \"products\": [\n            \"Dwt5F7KAhi\"\n        ],\n        \"minValue\": null\n    },\n    \"discountType\": \"FIXED_VALUE\",\n    \"discount\": 200\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/promotions/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"promotions",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checkout",
+			"item": [
+				{
+					"name": "Checkout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " [\n    {\n        \"productId\": \"C8GDyLrHJb\",\n        \"quantity\": 1\n    },\n    {\n        \"productId\": \"PWWe3w1SDU\",\n        \"quantity\": 1\n    },\n    {\n        \"productId\": \"4MB7UfpTQs\",\n        \"quantity\": 2\n    }\n]"
+						},
+						"url": {
+							"raw": "http://localhost:8080/checkout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
