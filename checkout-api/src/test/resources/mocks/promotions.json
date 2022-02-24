@@ -1,0 +1,24 @@
+[
+  {
+    "id": "6215ade1590a7706238d9ba9",
+    "name": "Sad Sunday!",
+    "rules": {
+      "products": null,
+      "minValue": 2000
+    },
+    "discountType": "PERCENTAGE",
+    "discount": 5
+  },
+  {
+    "id": "62177a14f1de4e3cdc3d4717",
+    "name": "Sad Sunday!",
+    "rules": {
+      "products": [
+        "PWWe3w1SDU"
+      ],
+      "minValue": 0
+    },
+    "discountType": "FIXED_VALUE",
+    "discount": 200
+  }
+]

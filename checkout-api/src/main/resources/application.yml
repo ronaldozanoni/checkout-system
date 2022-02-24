@@ -7,19 +7,12 @@ feign:
   client:
     config:
       products:
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
         url: http://localhost:8081
-        connectTimeout: 3000
-        readTimeout: 3000
-        loggerLevel: basic
       promotions:
-        url: http://localhost:8082
         connectTimeout: 3000
         readTimeout: 3000
         loggerLevel: basic
-
-## Ribbon
-spring:
-  cloud:
-    loadbalancer:
-      ribbon:
-        enable: false
+        url: http://localhost:8082

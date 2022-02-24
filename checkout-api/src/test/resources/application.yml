@@ -1,0 +1,14 @@
+## Feign
+feign:
+  client:
+    config:
+      products:
+        connectTimeout: 1000
+        readTimeout: 1000
+        loggerLevel: basic
+        url: http://localhost:9998
+      promotions:
+        connectTimeout: 1000
+        readTimeout: 1000
+        loggerLevel: basic
+        url: http://localhost:9999

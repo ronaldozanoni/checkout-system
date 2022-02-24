@@ -10,7 +10,6 @@ import qikserve.challenge.checkout.dto.BasketItemRequest;
 import qikserve.challenge.checkout.dto.CheckoutResponse;
 import qikserve.challenge.checkout.service.CheckoutService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -24,7 +23,7 @@ public class CheckoutController {
     private CheckoutService checkoutService;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<CheckoutResponse> checkout(@RequestBody @Valid List<BasketItemRequest> basket) {
+    public ResponseEntity<CheckoutResponse> checkout(@RequestBody List<BasketItemRequest> basket) {
         CheckoutResponse checkoutResponse = checkoutService.checkout(basket);
         return ResponseEntity.ok()
                 .contentType(APPLICATION_JSON)

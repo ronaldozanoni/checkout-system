@@ -77,7 +77,7 @@ public class CheckoutService {
         List<Promotion> promotions;
         try {
             promotions = promotionsClient.getPromotions();
-            log.info("Success fetching promotions! Found {} active promotions", promotions.size());
+            log.info("msg=Success fetching promotions! Found {} active promotions", promotions.size());
         } catch (FeignException err) {
             log.error("msg=Error fetching promotions", err);
             promotions = Collections.emptyList();

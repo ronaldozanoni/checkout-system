@@ -9,7 +9,7 @@ import qikserve.challenge.checkout.model.Promotion;
 import java.util.List;
 
 @Component
-@FeignClient(value = "promotions", url = "http://localhost:8082")
+@FeignClient(value = "promotions", url = "${feign.client.config.promotions.url}")
 public interface PromotionsAPIClient {
 
     @GetMapping(value = "/promotions", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
