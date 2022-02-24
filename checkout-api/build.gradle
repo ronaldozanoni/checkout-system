@@ -26,6 +26,10 @@ dependencies {
 	testImplementation 'com.github.tomakehurst:wiremock:2.27.2'
 }
 
+jar {
+	enabled = false
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 	jvmArgs '--enable-preview'

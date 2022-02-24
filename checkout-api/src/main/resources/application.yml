@@ -10,9 +10,9 @@ feign:
         connectTimeout: 3000
         readTimeout: 3000
         loggerLevel: basic
-        url: http://localhost:8081
+        url: ${PRODUCTS_API_URL:http://localhost:8081}
       promotions:
         connectTimeout: 3000
         readTimeout: 3000
         loggerLevel: basic
-        url: http://localhost:8082
+        url: ${PROMOTIONS_API_URL:http://localhost:8082}

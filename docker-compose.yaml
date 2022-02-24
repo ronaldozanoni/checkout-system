@@ -1,0 +1,41 @@
+version: '3'
+services:
+  products-api:
+    image: openjdk:17.0.2-oraclelinux7
+    working_dir: /usr/app/wiremock
+    command: /bin/sh ./startup.sh 
+    volumes: 
+      - './products-api:/usr/app'
+    ports: 
+      - '8081:8081'
+
+  promotions-api:
+    build:
+      context: promotions-api
+    ports:
+      - '8082:8082'
+    depends_on:
+      - promotions-db
+    environment:  
+      - DATABASE_HOST=promotions-db
+
+  promotions-db:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+
+  checkout-api:
+    build:
+      context: checkout-api
+    ports:
+      - '8080:8080'
+    depends_on:
+      - promotions-api
+      - products-api
+    environment:
+      - PRODUCTS_API_URL=http://products-api:8081
+      - PROMOTIONS_API_URL=http://promotions-api:8082
+
+networks:
+  app_net:
+    driver: bridge

@@ -6,6 +6,6 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
+      host: ${DATABASE_HOST:localhost}
       port: 27017
       database: promotions
