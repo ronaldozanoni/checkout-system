@@ -21,14 +21,17 @@ The project is organized in directories that isolate the three applications, and
 ## Running the app
 ### What do I need to install?
 
-Basically just `docker` and `docker-compose`, in order run everything at once. But, if you want to startup each app individually, then you must install:
-* Java (17);
-* MongoDB (or you can run it as a Docker container);
+Basically just `docker` and `docker-compose`, in order run everything at once. 
 
 ### How do I run it?
 
-If you want to run everything at once, as said before, go to the project's root directory and run: 
+First, you'll have to build the apps:
+```
+$ cd promotions-api && ./gradlew clean build
+$ cd checkout-api && ./gradlew clean build
+```
 
+Now we're ready to go:
 ```
 $ docker-compose up
 ```
