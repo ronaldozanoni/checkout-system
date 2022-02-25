@@ -20,15 +20,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8082/promotions/",
+							"raw": "http://localhost:8082/promotions",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8082",
 							"path": [
-								"promotions",
-								""
+								"promotions"
 							]
 						}
 					},
@@ -51,7 +50,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Sad Sunday!\",\n  \"rules\": {\n    \"minValue\": 0,\n    \"products\": [\"PWWe3w1SDU\"]\n  },\n  \"discountType\": \"FIXED_VALUE\",\n  \"discount\": 200\n}"
+							"raw": "{\n  \"name\": \"Carnaval Sale!\",\n  \"products\": [\"PWWe3w1SDU\", \"Dwt5F7KAhi\"],\n  \"discountType\": \"PERCENTAGE\",\n  \"discount\": 10\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8082/promotions",
@@ -73,7 +72,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/promotions/6215ade1590a7706238d9ba",
+							"raw": "http://localhost:8082/promotions/6219349d140d186f87b9e256",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -81,7 +80,7 @@
 							"port": "8082",
 							"path": [
 								"promotions",
-								"6215ade1590a7706238d9ba"
+								"6219349d140d186f87b9e256"
 							]
 						}
 					},
@@ -103,7 +102,7 @@
 							"raw": "{\n    \"name\": \"New burguers!\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8082/promotions/6212e921c1116c31ebd38171",
+							"raw": "http://localhost:8082/promotions/6219349d140d186f87b9e256",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -111,7 +110,7 @@
 							"port": "8082",
 							"path": [
 								"promotions",
-								"6212e921c1116c31ebd38171"
+								"6219349d140d186f87b9e256"
 							]
 						}
 					},
@@ -130,7 +129,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"6217d6379abc9f179f37745b\",\n    \"name\": \"Sad Sunday!\",\n    \"rules\": {\n        \"products\": [\n            \"PWWe3w1SDU\"\n        ],\n        \"minValue\": 0\n    },\n    \"discountType\": \"FIXED_VALUE\",\n    \"discount\": 200\n}"
+							"raw": "{\n    \"id\": \"6219349d140d186f87b9e256\",\n    \"name\": \"Carnaval Sale!\",\n    \"products\": [\n        \"PWWe3w1SDU\",\n        \"Dwt5F7KAhi\"\n    ],\n    \"discountType\": \"PERCENTAGE\",\n    \"discount\": 10\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8082/promotions/",
@@ -160,7 +159,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"6212e921c1116c31ebd38171\",\n    \"name\": \"Good burguers!\",\n    \"rules\": {\n        \"products\": [\n            \"Dwt5F7KAhi\"\n        ],\n        \"minValue\": null\n    },\n    \"discountType\": \"FIXED_VALUE\",\n    \"discount\": 200\n}"
+							"raw": "{\n  \"name\": \"Carnaval Sale!\",\n  \"products\": [\"PWWe3w1SDU\"],\n  \"discountType\": \"\",\n  \"discount\": 10\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8082/promotions/",
@@ -200,7 +199,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": " [\n    {\n        \"productId\": \"C8GDyLrHJb\",\n        \"quantity\": 1\n    },\n    {\n        \"productId\": \"PWWe3w1SDU\",\n        \"quantity\": 1\n    },\n    {\n        \"productId\": \"4MB7UfpTQs\",\n        \"quantity\": 2\n    }\n]"
+							"raw": "{\n    \"items\": [\n        {\n            \"product\": {\n                \"id\": \"PWWe3w1SDU\",\n                \"name\": \"Amazing Burger!\",\n                \"basePrice\": 9.99,\n                \"currentPrice\": 7.29\n            },\n            \"quantity\": 2\n        },\n        {\n            \"product\": {\n                \"id\": \"4MB7UfpTQs\",\n                \"name\": \"Boring Fries!\",\n                \"basePrice\": 1.99,\n                \"currentPrice\": 1.99\n            },\n            \"quantity\": 2\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/checkout",
@@ -215,6 +214,32 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/checkout/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkout",
+								"products"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -225,7 +250,18 @@
 					"name": "Get all products",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"products"
+							]
+						}
 					},
 					"response": []
 				}

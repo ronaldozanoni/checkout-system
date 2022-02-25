@@ -1,8 +1,6 @@
 {
-  "name": "Sundae Sunday!",
-  "rules": {
-    "minValue": 2000
-  },
-  "discountType": "FIXED_VALUE",
-  "discount": 400
+  "name": "Carnaval Sale!",
+  "products": ["PWWe3w1SDU", "Dwt5F7KAhi"],
+  "discountType": "PERCENTAGE",
+  "discount": 10
 }

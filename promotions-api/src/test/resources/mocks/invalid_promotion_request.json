@@ -1,8 +1,6 @@
 {
-  "name": "Sad Sunday :(",
-  "rules": {
-    "minValue": 2000
-  },
-  "discountType": "FIXED_VALUE",
-  "discount": -400
+  "name": "Carnaval Sale!",
+  "products": null,
+  "discountType": "PERCENTAGE",
+  "discount": -10
 }

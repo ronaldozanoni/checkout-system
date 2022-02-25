@@ -1,6 +1,6 @@
-# QikServe Challenge
+# Checkout System
 
-As proposed in the exercise, the idea here is to provide a complete backend for a checkout system. Since the **products-api** was already provided, I focused most in creating a scallable architechture for the other components. Below you can see a pretty simple diagram showing the requests flow:
+The idea here is to provide a complete backend for a checkout system. The **products-api** is just a mock.
 
 ![Checkout API's diagram. If your file reader can't render the image, it's located at docs/assets.](./docs/assets/checkout-diagram.png)
 
@@ -15,7 +15,7 @@ The steps could read as:
 The project is organized in directories that isolate the three applications, and a few other goodies at the root. Let's have a look:
 * **checkout-api**: Project for the app that will actually do the maths and processing;
 * **promotions-api**: Project for the app that manages promotions;
-* **products-api**: Inside of this directory there is just the mocked API you provided, plus one new script used to start the WireMock Server inside a container;
+* **products-api**: Inside of this directory there is just the mocked API, plus one script used to start the WireMock Server inside a container;
 * **docs**: This directory concentrates both the docs, the answers to the Follow-Up Questions and a collection of requests, that can be imported to Postman in order to consume the apps;
 
 ## Running the app
@@ -33,19 +33,7 @@ If you want to run everything at once, as said before, go to the project's root 
 $ docker-compose up
 ```
 
-Now, to run each app individually, assuming you have everything installed and the MongoDB up and running and listening to the default port:
-
-```bash
-# Promotions API 
-$ cd promotions-api && ./gradlew bootRun
-```
-
-```bash
-# Checkout API
-$ cd checkout-api && ./gradlew bootRun
-```
-
-Don't forget that the WireMock Server should be running too!
+Now, to run each app individually, check out the README file for each of them.
 
 ### How do I use it?
 
