@@ -1,15 +1,12 @@
 package quikserve.challenge.promotions.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import quikserve.challenge.promotions.dto.PromotionRequest;
 import quikserve.challenge.promotions.exception.NotFoundException;
 import quikserve.challenge.promotions.mapper.PromotionMapper;
 import quikserve.challenge.promotions.model.Promotion;
-import quikserve.challenge.promotions.model.Rule;
 import quikserve.challenge.promotions.repository.PromotionsRepository;
 import reactor.core.publisher.Mono;
 

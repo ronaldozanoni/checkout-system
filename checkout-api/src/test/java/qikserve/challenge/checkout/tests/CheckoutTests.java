@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 import qikserve.challenge.checkout.BaseTest;
-
-import java.math.BigDecimal;
+import qikserve.challenge.checkout.dto.BasketRequest;
 
 import static org.hamcrest.Matchers.*;
 import static qikserve.challenge.checkout.mocks.BasketMock.*;
@@ -27,14 +26,14 @@ public class CheckoutTests extends BaseTest {
             .given()
                 .contentType(ContentType.JSON)
                 .basePath("/checkout")
-                .body(validBasketWithPromotions())
+                .body(new BasketRequest(validBasketWithPromotions()))
             .when()
                 .post()
             .then()
                 .statusCode(200)
-                .body("rawValue", equalTo(21.98F))
-                .body("totalValue", equalTo(20.93F))
-                .body("totalSaved", equalTo(1.05F));
+                .body("rawValue", equalTo(10.99F))
+                .body("totalValue", equalTo(9.89F))
+                .body("totalSaved", equalTo(1.10F));
     }
 
     @Test
@@ -46,7 +45,7 @@ public class CheckoutTests extends BaseTest {
             .given()
                 .contentType(ContentType.JSON)
                 .basePath("/checkout")
-                .body(invalisBasket())
+                .body(new BasketRequest(invalisBasket()))
             .when()
                 .post()
             .then()
@@ -63,32 +62,45 @@ public class CheckoutTests extends BaseTest {
             .given()
                 .contentType(ContentType.JSON)
                 .basePath("/checkout")
-                .body(validBasketWithoutPromotions())
+                .body(new BasketRequest(validBasketWithoutPromotions()))
             .when()
                 .post()
             .then()
                 .statusCode(200)
-                .body("rawValue", equalTo(1.99F))
-                .body("totalValue", equalTo(1.99F))
-                .body("totalSaved", equalTo(0));
+                .body("rawValue", equalTo(10.99F))
+                .body("totalValue", equalTo(10.99F))
+                .body("totalSaved", equalTo(0.00F));
     }
 
     @Test
-    public void checkoutBasketWhenThePromotionsServiceIsDownShouldReturnSuccess() {
+    public void getProductsPromotions() {
+        mockProductsSuccess(productsServer);
+        mockPromotionsSuccess(promotionsServer);
+
+        RestAssured
+            .given()
+                .contentType(ContentType.JSON)
+                .basePath("/checkout/products")
+            .when()
+                .get()
+            .then()
+                .statusCode(200)
+                .body("$", hasSize(greaterThan(0)));
+    }
+
+    @Test
+    public void getProductsWhenPromotionsServerIsDownShouldRecoverAndReturnNormally() {
         mockProductsSuccess(productsServer);
         mockPromotionsError(promotionsServer);
 
         RestAssured
             .given()
                 .contentType(ContentType.JSON)
-                .basePath("/checkout")
-                .body(validBasketWithPromotions())
+                .basePath("/checkout/products")
             .when()
-                .post()
+                .get()
             .then()
                 .statusCode(200)
-                .body("rawValue", equalTo(21.98F))
-                .body("totalValue", equalTo(21.98F))
-                .body("totalSaved", equalTo(0));
+                .body("$", hasSize(greaterThan(0)));
     }
 }

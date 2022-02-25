@@ -5,9 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import quikserve.challenge.promotions.model.DiscountType;
-import quikserve.challenge.promotions.model.Rule;
 
 import javax.validation.constraints.PositiveOrZero;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,7 +19,7 @@ public class PromotionRequest {
 
     private String name;
 
-    private Rule rules;
+    private List<String> products;
 
     private DiscountType discountType;
 

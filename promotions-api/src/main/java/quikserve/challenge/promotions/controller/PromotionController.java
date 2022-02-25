@@ -1,6 +1,7 @@
 package quikserve.challenge.promotions.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class PromotionController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<ResponseEntity<List<Promotion>>> getAll() {
+    public Mono<ResponseEntity<List<Promotion>>> getAll(@Param("promotionType") String promotionType) {
         return promotionService.getAll()
                 .map(promos -> ResponseEntity
                         .ok()

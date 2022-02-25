@@ -1,8 +1,8 @@
-2018-12-17 11:18:08.908 Verbose logging enabled
+2022-02-25 09:04:08.289 Verbose logging enabled
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-2018-12-17 11:18:10.233 Verbose logging enabled
+2022-02-25 09:04:08.686 Verbose logging enabled
  /$$      /$$ /$$                     /$$      /$$                     /$$      
 | $$  /$ | $$|__/                    | $$$    /$$$                    | $$      
 | $$ /$$$| $$ /$$  /$$$$$$   /$$$$$$ | $$$$  /$$$$  /$$$$$$   /$$$$$$$| $$   /$$
@@ -17,12 +17,14 @@ enable-browser-proxying:      false
 no-request-journal:           false
 verbose:                      true
 
-2018-12-17 11:18:14.503 Request received:
-0:0:0:0:0:0:0:1 - GET /products
+2022-02-25 09:05:24.605 Request received:
+127.0.0.1 - GET /products
 
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
 Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
 
 
 
@@ -41,108 +43,14 @@ Content-Type: [application/json]
 
 [{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2018-12-17 11:43:48.764 Request received:
-0:0:0:0:0:0:0:1 - GET /products/Dwt5F7KAhi
+2022-02-25 09:07:14.385 Request received:
+127.0.0.1 - GET /products
 
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
 Host: [localhost:8081]
-
-
-
-Matched response definition:
-{
-  "status" : 200,
-  "body" : "{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099,\"promotions\":[{\"id\":\"ibt3EEYczW\",\"type\":\"QTY_BASED_PRICE_OVERRIDE\",\"required_qty\":2,\"price\":1799}]}",
-  "headers" : {
-    "Content-Type" : "application/json"
-  }
-}
-
-Response:
-HTTP/1.1 200
+Accept: [application/json]
 Content-Type: [application/json]
-
-{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099,"promotions":[{"id":"ibt3EEYczW","type":"QTY_BASED_PRICE_OVERRIDE","required_qty":2,"price":1799}]}
-
-2018-12-17 11:43:57.014 Request received:
-0:0:0:0:0:0:0:1 - GET /products/PWWe3w1SDU
-
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
-Host: [localhost:8081]
-
-
-
-Matched response definition:
-{
-  "status" : 200,
-  "body" : "{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999,\"promotions\":[{\"id\":\"ZRAwbsO2qM\",\"type\":\"BUY_X_GET_Y_FREE\",\"required_qty\":2,\"free_qty\":1}]}",
-  "headers" : {
-    "Content-Type" : "application/json"
-  }
-}
-
-Response:
-HTTP/1.1 200
-Content-Type: [application/json]
-
-{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999,"promotions":[{"id":"ZRAwbsO2qM","type":"BUY_X_GET_Y_FREE","required_qty":2,"free_qty":1}]}
-
-2018-12-17 11:44:03.220 Request received:
-0:0:0:0:0:0:0:1 - GET /products/C8GDyLrHJb
-
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
-Host: [localhost:8081]
-
-
-
-Matched response definition:
-{
-  "status" : 200,
-  "body" : "{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499,\"promotions\":[{\"id\":\"Gm1piPn7Fg\",\"type\":\"FLAT_PERCENT\",\"amount\":10}]}",
-  "headers" : {
-    "Content-Type" : "application/json"
-  }
-}
-
-Response:
-HTTP/1.1 200
-Content-Type: [application/json]
-
-{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499,"promotions":[{"id":"Gm1piPn7Fg","type":"FLAT_PERCENT","amount":10}]}
-
-2018-12-17 11:44:09.280 Request received:
-0:0:0:0:0:0:0:1 - GET /products/4MB7UfpTQs
-
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
-Host: [localhost:8081]
-
-
-
-Matched response definition:
-{
-  "status" : 200,
-  "body" : "{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199,\"promotions\":[]}",
-  "headers" : {
-    "Content-Type" : "application/json"
-  }
-}
-
-Response:
-HTTP/1.1 200
-Content-Type: [application/json]
-
-{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199,"promotions":[]}
-
-2018-12-17 13:29:40.916 Request received:
-0:0:0:0:0:0:0:1 - GET /products
-
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
-Host: [localhost:8081]
 
 
 
@@ -161,19 +69,21 @@ Content-Type: [application/json]
 
 [{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2018-12-17 13:29:58.667 Request received:
-0:0:0:0:0:0:0:1 - GET /products/Dwt5F7KAhi
+2022-02-25 09:09:27.786 Request received:
+127.0.0.1 - GET /products
 
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
 Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
 
 
 
 Matched response definition:
 {
   "status" : 200,
-  "body" : "{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099,\"promotions\":[{\"id\":\"ibt3EEYczW\",\"type\":\"QTY_BASED_PRICE_OVERRIDE\",\"required_qty\":2,\"price\":1799}]}",
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
   "headers" : {
     "Content-Type" : "application/json"
   }
@@ -183,21 +93,23 @@ Response:
 HTTP/1.1 200
 Content-Type: [application/json]
 
-{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099,"promotions":[{"id":"ibt3EEYczW","type":"QTY_BASED_PRICE_OVERRIDE","required_qty":2,"price":1799}]}
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2018-12-17 13:30:04.996 Request received:
-0:0:0:0:0:0:0:1 - GET /products/PWWe3w1SDU
+2022-02-25 09:11:24.895 Request received:
+127.0.0.1 - GET /products
 
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
 Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
 
 
 
 Matched response definition:
 {
   "status" : 200,
-  "body" : "{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999,\"promotions\":[{\"id\":\"ZRAwbsO2qM\",\"type\":\"BUY_X_GET_Y_FREE\",\"required_qty\":2,\"free_qty\":1}]}",
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
   "headers" : {
     "Content-Type" : "application/json"
   }
@@ -207,21 +119,23 @@ Response:
 HTTP/1.1 200
 Content-Type: [application/json]
 
-{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999,"promotions":[{"id":"ZRAwbsO2qM","type":"BUY_X_GET_Y_FREE","required_qty":2,"free_qty":1}]}
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2018-12-17 13:30:10.382 Request received:
-0:0:0:0:0:0:0:1 - GET /products/C8GDyLrHJb
+2022-02-25 14:51:40.683 Request received:
+127.0.0.1 - GET /products
 
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
 Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
 
 
 
 Matched response definition:
 {
   "status" : 200,
-  "body" : "{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499,\"promotions\":[{\"id\":\"Gm1piPn7Fg\",\"type\":\"FLAT_PERCENT\",\"amount\":10}]}",
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
   "headers" : {
     "Content-Type" : "application/json"
   }
@@ -231,21 +145,23 @@ Response:
 HTTP/1.1 200
 Content-Type: [application/json]
 
-{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499,"promotions":[{"id":"Gm1piPn7Fg","type":"FLAT_PERCENT","amount":10}]}
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2018-12-17 13:30:21.048 Request received:
-0:0:0:0:0:0:0:1 - GET /products/4MB7UfpTQs
+2022-02-25 14:52:21.097 Request received:
+127.0.0.1 - GET /products
 
-User-Agent: [curl/7.54.0]
-Accept: [*/*]
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
 Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
 
 
 
 Matched response definition:
 {
   "status" : 200,
-  "body" : "{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199,\"promotions\":[]}",
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
   "headers" : {
     "Content-Type" : "application/json"
   }
@@ -255,6 +171,707 @@ Response:
 HTTP/1.1 200
 Content-Type: [application/json]
 
-{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199,"promotions":[]}
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2018-12-17 13:43:10.302 Received request to /shutdown with body 
+2022-02-25 15:08:15.565 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:09:43.705 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:10:46.646 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:13:57.809 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:17:52.252 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:19:43.162 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:20:15.110 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:20:44.433 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:21:06.043 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:26:29.340 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:28:33.283 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:32:13.692 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:33:20.195 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:36:19.343 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:36:47.989 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:37:15.623 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:37:51.468 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:37:56.012 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:38:06.501 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:38:32.838 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:39:59.178 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:40:38.494 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:40:59.669 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:43:38.920 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:44:03.767 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:44:45.388 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-02-25 15:44:58.538 Request received:
+127.0.0.1 - GET /products
+
+User-Agent: [Java/17.0.2]
+Connection: [keep-alive]
+Host: [localhost:8081]
+Accept: [application/json]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+

@@ -1,25 +1,24 @@
-package qikserve.challenge.checkout.model;
+package qikserve.challenge.checkout.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Promotion {
+public class ProductResponse {
 
     private String id;
 
     private String name;
 
-    private List<String> products;
+    private BigDecimal basePrice;
 
-    private PromotionDiscountTypes discountType;
+    private BigDecimal currentPrice;
 
-    private Integer discount;
 }
