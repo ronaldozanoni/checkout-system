@@ -199,7 +199,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"items\": [\n        {\n            \"product\": {\n                \"id\": \"PWWe3w1SDU\",\n                \"name\": \"Amazing Burger!\",\n                \"basePrice\": 9.99,\n                \"currentPrice\": 7.29\n            },\n            \"quantity\": 2\n        },\n        {\n            \"product\": {\n                \"id\": \"4MB7UfpTQs\",\n                \"name\": \"Boring Fries!\",\n                \"basePrice\": 1.99,\n                \"currentPrice\": 1.99\n            },\n            \"quantity\": 2\n        }\n    ]\n}"
+							"raw": "{\n    \"items\": [\n        {\n            \"product\": {\n                \"id\": \"PWWe3w1SDU\",\n                \"name\": \"Amazing Burger!\",\n                \"basePrice\": 9.99,\n                \"currentPrice\": 7.29\n            }       },\n        {\n            \"product\": {\n                \"id\": \"4MB7UfpTQs\",\n                \"name\": \"Boring Fries!\",\n                \"basePrice\": 1.99,\n                \"currentPrice\": 1.99\n            },\n            \"quantity\": 2\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/checkout",

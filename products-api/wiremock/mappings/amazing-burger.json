@@ -12,7 +12,6 @@
     "jsonBody": {
       "id": "PWWe3w1SDU",
       "name": "Amazing Burger!",
-      "price": 999,
       "promotions": [
         {
           "id": "ZRAwbsO2qM",
